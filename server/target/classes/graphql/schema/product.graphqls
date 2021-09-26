@@ -1,0 +1,16 @@
+type Product {
+    id: ID!
+    name: String
+    price: Float
+    oldPrice: Float
+    discount: Float
+    stock: Int
+    sold: Int
+    productImages: [ProductImage]
+    start: Float
+    brand: String
+    material: String
+    origin: String
+    sendFrom: String
+    comments: [ProductComment]
+}

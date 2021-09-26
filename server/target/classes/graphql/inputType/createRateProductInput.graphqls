@@ -1,0 +1,4 @@
+input CreateRateProductInput {
+    productId: String
+    start: Float
+}

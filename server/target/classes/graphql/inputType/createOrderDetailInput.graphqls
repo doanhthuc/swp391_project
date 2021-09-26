@@ -1,0 +1,5 @@
+input CreateOrderDetailInput {
+    productId: String
+    quantity: Int
+    price: Float
+}

@@ -1,0 +1,27 @@
+scalar NonNegativeInt
+scalar DateTime
+scalar Date
+
+# All mutations available in graphql
+type Mutation {
+    # Create a bank account
+    createBankAccount(input: CreateBankAccountInput!): BankAccount!
+    # Upload a file
+    uploadFile: ID!
+    # Create a product
+    createProduct(input: CreateProductInput!): Product!
+    # Delete a product
+    deleteProduct(id: ID!): ID
+    # Update a product
+    updateProduct(input: UpdateProductInput!): Product!
+
+    createUser(input: CreateUserInput!): User!
+
+    login(username: String!, password: String!): User
+
+    createOrder(input: CreateOrderInput!): Order
+
+    rate(input: CreateRateProductInput): RateProduct
+
+    comment(input: CreateProductCommentInput!): ProductComment
+}

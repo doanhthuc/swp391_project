@@ -1,0 +1,7 @@
+type Order {
+    id: ID!
+    orderDate: DateTime
+    shipAddress: String
+    user: User
+    orderDetails: [OrderDetail]
+}

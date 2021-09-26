@@ -1,0 +1,6 @@
+type OrderDetail {
+    quantity: Int
+    price: Float
+    product: Product
+    order: Order
+}

@@ -1,0 +1,11 @@
+# All available queries on this graphql server
+type Query {
+    bankAccount(id: ID): BankAccount
+    bankAccounts(first: Int!, after: String): BankAccountConnection @connection (for: "BankAccount")
+    product(id: ID): Product
+#    products: [Product]
+    user(id: ID): User
+    getCurrentUser: User
+    getRate(productId: ID): RateProduct
+    products(page: Int, limit: Int, order: String, field: String): PaginatedProduct
+}

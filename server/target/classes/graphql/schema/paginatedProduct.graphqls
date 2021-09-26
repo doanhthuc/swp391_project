@@ -1,0 +1,5 @@
+type PaginatedProduct {
+    page: Int
+    totalPages: Int
+    products: [Product]
+}

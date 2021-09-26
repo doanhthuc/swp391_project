@@ -1,0 +1,10 @@
+input CreateProductInput {
+    name: String
+    price: Float
+    stock: Int
+    imagePaths: [String]
+    brand: String
+    material: String
+    origin: String
+    sendFrom: String
+}

@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.example.javagraphqltutorial.JavaGraphqlTutorialApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.545 s <<< FAILURE! - in com.example.javagraphqltutorial.JavaGraphqlTutorialApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'graphQLTestUtils' defined in class path resource [com/graphql/spring/boot/test/GraphQLTestAutoConfiguration.class]: Unsatisfied dependency expressed through method 'graphQLTestUtils' parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.boot.test.web.client.TestRestTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.boot.test.web.client.TestRestTemplate' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+

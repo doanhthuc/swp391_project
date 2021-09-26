@@ -1,0 +1,5 @@
+type RateProduct {
+    start: Float
+    product: Product
+    user: User
+}

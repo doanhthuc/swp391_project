@@ -1,0 +1,4 @@
+type ProductComment {
+    comment: String
+    user: User
+}

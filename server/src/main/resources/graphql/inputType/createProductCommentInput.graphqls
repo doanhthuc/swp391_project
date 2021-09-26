@@ -1,0 +1,4 @@
+input CreateProductCommentInput {
+    productId: String
+    comment: String
+}

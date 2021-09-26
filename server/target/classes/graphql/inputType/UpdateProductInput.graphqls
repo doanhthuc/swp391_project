@@ -1,0 +1,7 @@
+input UpdateProductInput {
+    id: ID!
+    name: String
+    price: Float
+    stock: Int
+    imagePaths: [String]
+}
