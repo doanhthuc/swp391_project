@@ -10,4 +10,6 @@ type Query {
     products(page: Int, limit: Int, order: String, field: String): PaginatedProduct
     productsByCategory(page: Int, limit: Int, order: String, field: String, categoryName: String): PaginatedProduct
     categories: [Category]
+    search(keyword: String): [Product]
+    orderHistory: [Order]
 }

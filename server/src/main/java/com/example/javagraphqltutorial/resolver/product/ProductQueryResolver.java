@@ -80,4 +80,11 @@ public class ProductQueryResolver implements GraphQLQueryResolver {
         }
         return result;
     }
+
+    public List<Product> search(String keyword) {
+        if (keyword != null) {
+            return productRepository.search(keyword);
+        }
+        return productRepository.findAll();
+    }
 }
