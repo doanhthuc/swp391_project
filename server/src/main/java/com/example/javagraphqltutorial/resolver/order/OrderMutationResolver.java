@@ -38,7 +38,11 @@ public class OrderMutationResolver implements GraphQLMutationResolver {
         for(CreateOrderDetailInput orderDetailInput: input.getOrderDetails()) {
             productRepository.findById(UUID.fromString(orderDetailInput.getProductId()))
                     .ifPresentOrElse(product -> {
+                        if (orderDetailInput.getQuantity() > product.getStock()) {
+                            throw new GraphQLException("Not enough stock");
+                        }
                         product.setSold(orderDetailInput.getQuantity() + product.getSold());
+                        productRepository.save(product);
                     }, () -> {
                         throw new GraphQLException("Product not found");
                     });

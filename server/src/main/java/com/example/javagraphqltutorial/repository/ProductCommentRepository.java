@@ -9,4 +9,6 @@ import java.util.UUID;
 
 public interface ProductCommentRepository extends JpaRepository<ProductComment, ProductCommentPK> {
     List<ProductComment> findAllByProductId(UUID id);
+
+    Long countProductCommentsByProductId(UUID id);
 }

@@ -1,5 +1,6 @@
 package com.example.javagraphqltutorial.resolver.comment;
 
+import com.example.javagraphqltutorial.entity.Product;
 import com.example.javagraphqltutorial.entity.ProductComment;
 import com.example.javagraphqltutorial.entity.ProductCommentPK;
 import com.example.javagraphqltutorial.entity.User;
@@ -7,9 +8,12 @@ import com.example.javagraphqltutorial.entity.input.CreateProductCommentInput;
 import com.example.javagraphqltutorial.repository.ProductCommentRepository;
 import com.example.javagraphqltutorial.repository.ProductRepository;
 import com.example.javagraphqltutorial.service.UserService;
+import graphql.GraphQLException;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
@@ -21,9 +25,12 @@ public class ProductCommentMutationResolver implements GraphQLMutationResolver {
 
     public ProductComment comment (CreateProductCommentInput input) {
         User user = userService.getCurrentUser();
-        ProductCommentPK id = new ProductCommentPK(user.getId(), input.getProductId());
-        ProductComment productComment = productCommentRepository.save(new ProductComment(id, input.getComment()));
+        Product product = productRepository.findById(input.getProductId())
+                .orElseThrow(() -> new GraphQLException("Product not found"));
+
+        ProductComment productComment = new ProductComment(input.getComment());
         productComment.setUser(user);
-        return productComment;
+        productComment.setProduct(product);
+        return productCommentRepository.save(productComment);
     }
 }

@@ -8,4 +8,6 @@ type Query {
     getCurrentUser: User
     getRate(productId: ID): RateProduct
     products(page: Int, limit: Int, order: String, field: String): PaginatedProduct
+    productsByCategory(page: Int, limit: Int, order: String, field: String, categoryName: String): PaginatedProduct
+    categories: [Category]
 }

@@ -24,4 +24,6 @@ type Mutation {
     rate(input: CreateRateProductInput): RateProduct
 
     comment(input: CreateProductCommentInput!): ProductComment
+
+    createCategory(input: String!): Category
 }

@@ -1,5 +1,6 @@
 input CreateProductInput {
     name: String
+    oldPrice: Float
     price: Float
     stock: Int
     imagePaths: [String]
@@ -7,4 +8,5 @@ input CreateProductInput {
     material: String
     origin: String
     sendFrom: String
+    categoryName: String
 }

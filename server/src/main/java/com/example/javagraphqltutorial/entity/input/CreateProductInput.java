@@ -10,9 +10,9 @@ public class CreateProductInput {
 
     Float oldPrice;
 
-    int stock;
+    Integer stock;
 
-    int sold;
+    Integer sold;
 
     String brand;
 
@@ -23,4 +23,6 @@ public class CreateProductInput {
     String sendFrom;
 
     String[] imagePaths;
+
+    String categoryName;
 }

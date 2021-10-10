@@ -1,11 +1,13 @@
 package com.example.javagraphqltutorial.resolver.product;
 
+import com.example.javagraphqltutorial.entity.Category;
 import com.example.javagraphqltutorial.entity.Product;
 import com.example.javagraphqltutorial.entity.ProductComment;
 import com.example.javagraphqltutorial.entity.ProductImage;
 import com.example.javagraphqltutorial.entity.input.CreateProductCommentInput;
 import com.example.javagraphqltutorial.entity.input.CreateProductInput;
 import com.example.javagraphqltutorial.entity.input.UpdateProductInput;
+import com.example.javagraphqltutorial.repository.CategoryRepository;
 import com.example.javagraphqltutorial.repository.ProductImageRepository;
 import com.example.javagraphqltutorial.repository.ProductRepository;
 import graphql.GraphQLException;
@@ -15,29 +17,42 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
-import java.util.Base64;
+import java.time.Clock;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class ProductMutationResolver implements GraphQLMutationResolver {
-
+    private final Clock clock;
     private final ProductRepository productRepository;
     private final ProductImageRepository productImageRepository;
+    private final CategoryRepository categoryRepository;
 
-    public ProductMutationResolver(ProductRepository productRepository, ProductImageRepository productImageRepository) {
-        this.productRepository = productRepository;
-        this.productImageRepository = productImageRepository;
-    }
+//    public ProductMutationResolver(ProductRepository productRepository, ProductImageRepository productImageRepository) {
+//        this.productRepository = productRepository;
+//        this.productImageRepository = productImageRepository;
+//    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     public Product createProduct (CreateProductInput input) {
-        Product product = new Product(
-                input.getName(), input.getPrice(),
-                input.getStock(), input.getBrand(), input.getMaterial(),
-                input.getOrigin(), input.getSendFrom()
-        );
+//        Product product = new Product(
+//                input.getName(), input.getPrice(),
+//                input.getStock(), input.getBrand(), input.getMaterial(),
+//                input.getOrigin(), input.getSendFrom()
+//        );
+
+        Category category =
+                categoryRepository.findByName(input.getCategoryName()).orElseThrow(() -> new GraphQLException("Category not found"));
+
+        Product product = Product.builder()
+                .name(input.getName()).price(input.getPrice()).oldPrice(input.getOldPrice())
+                .stock(input.getStock()).brand(input.getBrand()).material(input.getMaterial())
+                .origin(input.getOrigin()).sendFrom(input.getSendFrom()).createdAt(ZonedDateTime.now(clock))
+                .category(category).sold(0).build();
+
         product = productRepository.save(product);
         if (input.getImagePaths() != null) {
             for (String imagePath : input.getImagePaths()) {

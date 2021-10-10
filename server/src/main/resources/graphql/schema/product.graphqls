@@ -13,4 +13,7 @@ type Product {
     origin: String
     sendFrom: String
     comments: [ProductComment]
+    totalRates: Int
+    totalComments: Int
+    category: Category
 }

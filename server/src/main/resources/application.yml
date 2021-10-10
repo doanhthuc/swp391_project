@@ -12,7 +12,7 @@ spring:
     password: 1
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -24,6 +24,7 @@ graphql:
     maxQueryDepth: 100
     exception-handlers-enabled: true
     tracingEnabled: true
+    corsEnabled: true
 #  playground:
 #    headers:
 #      Authorization: Bearer TOKEN

@@ -1,9 +1,9 @@
 package com.example.javagraphqltutorial.resolver.product;
 
+import com.example.javagraphqltutorial.entity.Category;
 import com.example.javagraphqltutorial.entity.Product;
 import com.example.javagraphqltutorial.entity.ProductComment;
 import com.example.javagraphqltutorial.entity.ProductImage;
-import com.example.javagraphqltutorial.entity.RateProduct;
 import com.example.javagraphqltutorial.repository.ProductCommentRepository;
 import com.example.javagraphqltutorial.repository.ProductImageRepository;
 import com.example.javagraphqltutorial.repository.RateProductRepository;
@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 @Component
@@ -42,5 +41,17 @@ public class ProductResolver implements GraphQLResolver<Product> {
 
     List<ProductComment> comments(Product product) {
         return productCommentRepository.findAllByProductId(product.getId());
+    }
+
+    Long totalRates(Product product) {
+        return rateProductRepository.countRateProductByProductId(product.getId());
+    }
+
+    Long totalComments(Product product) {
+        return productCommentRepository.countProductCommentsByProductId(product.getId());
+    }
+
+    Category category(Product product) {
+        return product.getCategory();
     }
 }

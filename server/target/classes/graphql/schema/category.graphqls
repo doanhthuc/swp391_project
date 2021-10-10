@@ -1,3 +1,5 @@
-#type Category {
-#    id: ID
-#}
+type Category {
+    id: ID
+    name: String
+    products: [Product]
+}
