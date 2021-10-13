@@ -1,4 +1,4 @@
 input CreateRateProductInput {
     productId: String
-    start: Float
+    star: Float
 }

@@ -51,7 +51,7 @@ public class ProductMutationResolver implements GraphQLMutationResolver {
                 .name(input.getName()).price(input.getPrice()).oldPrice(input.getOldPrice())
                 .stock(input.getStock()).brand(input.getBrand()).material(input.getMaterial())
                 .origin(input.getOrigin()).sendFrom(input.getSendFrom()).createdAt(ZonedDateTime.now(clock))
-                .category(category).sold(0).build();
+                .category(category).sold(0).star(input.getStar()).build();
 
         product = productRepository.save(product);
         if (input.getImagePaths() != null) {

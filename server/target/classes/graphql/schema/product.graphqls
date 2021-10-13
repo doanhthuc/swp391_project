@@ -7,7 +7,7 @@ type Product {
     stock: Int
     sold: Int
     productImages: [ProductImage]
-    start: Float
+    star: Float
     brand: String
     material: String
     origin: String

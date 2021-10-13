@@ -11,6 +11,6 @@ import java.util.UUID;
 public interface RateProductRepository extends JpaRepository<RateProduct, RateProductPK> {
     Long countRateProductByProductId(UUID product_id);
 
-    @Query("SELECT SUM(r.start) FROM RateProduct r WHERE r.id.productId = ?1")
-    Float sumStartByProductId(UUID productId);
+    @Query("SELECT SUM(r.star) FROM RateProduct r WHERE r.id.productId = ?1")
+    Float sumStarByProductId(UUID productId);
 }

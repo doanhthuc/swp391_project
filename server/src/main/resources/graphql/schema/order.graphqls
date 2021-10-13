@@ -1,7 +1,19 @@
 type Order {
     id: ID!
-    orderDate: DateTime
+    fullName: String
+
+    email: String
+
     shipAddress: String
+
+    city: String
+
+    nameOnCard: String
+
+    creditCardNumber: String
+
+    expiredYear: String
+    orderDate: DateTime
     user: User
     orderDetails: [OrderDetail]
 }

@@ -1,5 +1,5 @@
 type RateProduct {
-    start: Float
+    star: Float
     product: Product
     user: User
 }

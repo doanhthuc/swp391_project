@@ -31,7 +31,7 @@ public class RateProductMutationResolver implements GraphQLMutationResolver {
         RateProduct rateProduct = rateProductRepository.save(
                 new RateProduct(
                         new RateProductPK(user.getId(), product.get().getId()),
-                        input.getStart()
+                        input.getStar()
                 ));
         rateProduct.setProduct(product.get());
         rateProduct.setUser(user);

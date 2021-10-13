@@ -14,6 +14,7 @@ import com.example.javagraphqltutorial.security.BadTokenException;
 import com.example.javagraphqltutorial.security.JWTUserDetails;
 import com.example.javagraphqltutorial.security.SecurityProperties;
 import com.example.javagraphqltutorial.security.UserAlreadyExistsException;
+import graphql.GraphQLException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -53,7 +54,7 @@ public class UserService implements UserDetailsService {
         return repository
                 .findByUsername(username)
                 .map(user -> getUserDetails(user, getToken(user)))
-                .orElseThrow(() -> new UsernameNotFoundException("Username or password didn''t match"));
+                .orElseThrow(() -> new GraphQLException("Username or password didn''t match"));
     }
 
     @Transactional

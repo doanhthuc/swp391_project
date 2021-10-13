@@ -25,4 +25,6 @@ public class CreateProductInput {
     String[] imagePaths;
 
     String categoryName;
+
+    Float star;
 }

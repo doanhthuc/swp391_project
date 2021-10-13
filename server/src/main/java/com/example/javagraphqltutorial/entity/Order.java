@@ -30,6 +30,18 @@ public class Order {
 
     private String shipAddress;
 
+    private String fullName;
+
+    private String email;
+
+    private String city;
+
+    private String nameOnCard;
+
+    private String creditCardNumber;
+
+    private String expiredYear;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

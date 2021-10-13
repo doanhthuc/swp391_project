@@ -1,4 +1,18 @@
 input CreateOrderInput {
+
+    fullName: String
+
+    email: String
+
     shipAddress: String
+
+    city: String
+
+    nameOnCard: String
+
+    creditCardNumber: String
+
+    expiredYear: String
+
     orderDetails: [CreateOrderDetailInput]
 }

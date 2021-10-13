@@ -9,4 +9,5 @@ input CreateProductInput {
     origin: String
     sendFrom: String
     categoryName: String
+    star: Float
 }

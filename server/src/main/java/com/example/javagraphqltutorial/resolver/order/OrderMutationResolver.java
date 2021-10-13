@@ -33,7 +33,10 @@ public class OrderMutationResolver implements GraphQLMutationResolver {
 
     public Order createOrder(CreateOrderInput input) {
         User user = userService.getCurrentUser();
-        Order order = new Order(ZonedDateTime.now(clock), input.getShipAddress(), user);
+//        Order order = new Order(ZonedDateTime.now(clock), input.getShipAddress(), user);
+        Order order = Order.builder().orderDate(ZonedDateTime.now(clock)).creditCardNumber(input.getCreditCardNumber())
+                .email(input.getEmail()).fullName(input.getFullName()).shipAddress(input.getShipAddress()).city(input.getCity())
+                .user(user).nameOnCard(input.getNameOnCard()).expiredYear(input.getExpiredYear()).build();
         order = orderRepository.save(order);
         for(CreateOrderDetailInput orderDetailInput: input.getOrderDetails()) {
             productRepository.findById(UUID.fromString(orderDetailInput.getProductId()))

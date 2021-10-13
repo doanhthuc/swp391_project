@@ -15,7 +15,7 @@ public class RateProduct {
     @EmbeddedId
     private RateProductPK id;
 
-    private Float start;
+    private Float star;
 
     @ManyToOne
     @JoinColumn(name = "user_id", insertable=false, updatable=false)
@@ -25,8 +25,8 @@ public class RateProduct {
     @JoinColumn(name="product_id", insertable=false, updatable=false)
     private Product product;
 
-    public RateProduct(RateProductPK id, Float start) {
+    public RateProduct(RateProductPK id, Float star) {
         this.id = id;
-        this.start = start;
+        this.star = star;
     }
 }

@@ -30,13 +30,13 @@ public class ProductResolver implements GraphQLResolver<Product> {
     Float discount(Product product) {
         return product.getOldPrice() == null ?
                 0F :
-                (product.getOldPrice() - product.getPrice()) / product.getPrice();
+                (product.getOldPrice() - product.getPrice()) / product.getOldPrice();
     }
 
-    Float start(Product product) {
+    Float star(Product product) {
         Long numberOfRate = rateProductRepository.countRateProductByProductId(product.getId());
-        if (numberOfRate == 0) return null;
-        return rateProductRepository.sumStartByProductId(product.getId()) / numberOfRate;
+        if (numberOfRate == 0) return product.getStar();
+        return rateProductRepository.sumStarByProductId(product.getId()) / numberOfRate;
     }
 
     List<ProductComment> comments(Product product) {

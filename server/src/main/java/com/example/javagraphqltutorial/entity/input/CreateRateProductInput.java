@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class CreateRateProductInput {
     String productId;
-    Float start;
+    Float star;
 }

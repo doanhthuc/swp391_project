@@ -31,7 +31,7 @@ public class Product {
 
     private int sold;
 
-    private Float start;
+    private Float star;
 
     private String brand;
 
