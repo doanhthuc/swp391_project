@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface ProductCommentRepository extends JpaRepository<ProductComment, ProductCommentPK> {
+public interface ProductCommentRepository extends JpaRepository<ProductComment, UUID> {
     List<ProductComment> findAllByProductId(UUID id);
 
     Long countProductCommentsByProductId(UUID id);

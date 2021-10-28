@@ -5,4 +5,5 @@ type User {
     orders: [Order]
     roles: [Role]
     getToken: String
+    avatarUrl: String
 }

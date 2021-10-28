@@ -2,4 +2,5 @@ input CreateUserInput {
     username: String!
     password: String!
     roleNames: [String]
+    avatarUrl: String!
 }

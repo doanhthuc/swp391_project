@@ -24,6 +24,8 @@ public class User {
 
     private String password;
 
+    private String avatarUrl;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 

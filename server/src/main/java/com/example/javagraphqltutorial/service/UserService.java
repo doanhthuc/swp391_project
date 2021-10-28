@@ -86,6 +86,7 @@ public class UserService implements UserDetailsService {
             return repository.saveAndFlush(User
                     .builder()
                     .username(input.getUsername())
+                    .avatarUrl(input.getAvatarUrl())
                     .password(passwordEncoder.encode(input.getPassword()))
                     .roles(roleList)
                     .build());

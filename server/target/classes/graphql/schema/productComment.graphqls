@@ -1,4 +1,5 @@
 type ProductComment {
+    id: ID
     comment: String
     user: User
 }

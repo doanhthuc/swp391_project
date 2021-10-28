@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Component
@@ -32,5 +33,10 @@ public class ProductCommentMutationResolver implements GraphQLMutationResolver {
         productComment.setUser(user);
         productComment.setProduct(product);
         return productCommentRepository.save(productComment);
+    }
+
+    public UUID deleteComment(UUID id) {
+        productCommentRepository.deleteById(id);
+        return id;
     }
 }

@@ -8,5 +8,7 @@ public class CreateUserInput {
 
     String password;
 
+    String avatarUrl;
+
     String[] roleNames;
 }

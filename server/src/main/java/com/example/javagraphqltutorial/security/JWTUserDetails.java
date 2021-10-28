@@ -14,6 +14,7 @@ import java.util.List;
 public class JWTUserDetails implements UserDetails {
     private final String username;
     private final String password;
+    private final String avatarUrl;
     private final List<SimpleGrantedAuthority> authorities;
     private final String token;
 

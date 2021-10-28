@@ -26,7 +26,10 @@ public class RateProductMutationResolver implements GraphQLMutationResolver {
 
     public RateProduct rate(CreateRateProductInput input) {
         Optional<Product> product = productRepository.findById(UUID.fromString(input.getProductId()));
-        product.orElseThrow(() -> new GraphQLException("Product not found"));
+//        product.orElseThrow(() -> new GraphQLException("Product not found"));
+        if (product.isEmpty()) {
+            throw new GraphQLException("Product not found");
+        }
         User user = userService.getCurrentUser();
         RateProduct rateProduct = rateProductRepository.save(
                 new RateProduct(
