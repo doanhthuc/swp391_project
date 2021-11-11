@@ -1,0 +1,110 @@
+.listsp {
+  cursor: pointer;
+}
+
+.listspColorMain {
+  margin: 10px 3px;
+}
+
+.listspColor {
+  color: black;
+  background-color: #b8e0d1;
+  padding: 5px 30px;
+  border-radius: 50px;
+}
+
+.listsp:hover .listspColor {
+  color: rgb(255, 123, 0);
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.littlebot {
+  margin-top: 20px;
+}
+
+.littleleft {
+  margin-left: 0px;
+}
+
+.commentProduct {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.comment1 {
+  margin-left: 10px;
+}
+
+.commentProduct h4 {
+  margin-bottom: 5px;
+  margin-top: 3px;
+}
+
+.commentButton {
+  margin-top: 23px;
+  margin-left: 5px;
+}
+
+.shopchuahe {
+  padding-top: 5px;
+}
+
+.moreleft {
+  margin-left: 600px;
+}
+
+.soluong {
+  margin-left: 35px;
+  margin-right: 65px;
+  background-color: aquamarine;
+  width: 40px;
+  height: 40px;
+}
+
+.alittlebot {
+  margin-top: 15px;
+}
+
+.minilittle {
+  width: 60px;
+}
+
+.littlewidth {
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+.pagii1 {
+  margin: 20px auto;
+  margin-bottom: 10px;
+  margin-left: 25.5rem;
+}
+
+.alittle22 {
+  width: 140px;
+}
+
+.heheOrange {
+  background-color: orange;
+}
+
+.hehxava {
+  background-color: rgb(240, 200, 155);
+  padding: 16px;
+  margin-left: 6px;
+}
+
+.hejadsadas {
+  margin-top: 8px;
+}
+
+.funnyboiandfunnygirl {
+  margin-left: 38px;
+  margin-right: 25px;
+}
+
+.hehelfet {
+  margin-left: 30px;
+}

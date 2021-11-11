@@ -38,12 +38,6 @@ public class ProductMutationResolver implements GraphQLMutationResolver {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     public Product createProduct (CreateProductInput input) {
-//        Product product = new Product(
-//                input.getName(), input.getPrice(),
-//                input.getStock(), input.getBrand(), input.getMaterial(),
-//                input.getOrigin(), input.getSendFrom()
-//        );
-
         Category category =
                 categoryRepository.findByName(input.getCategoryName()).orElseThrow(() -> new GraphQLException("Category not found"));
 
